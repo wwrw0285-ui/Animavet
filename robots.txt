@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://animavet.ru/sitemap.xml
