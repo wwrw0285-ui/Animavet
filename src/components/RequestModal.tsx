@@ -66,36 +66,55 @@ export default function RequestModal({ isOpen, formState, onClose, onSuccess, on
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (honeypot) return; // spam protection
+
+    if (honeypot) return;
 
     const rawPhone = getRawPhone(phone);
+
     if (rawPhone.length < 10) {
-      setPhoneError('Введите корректный номер телефона');
+      setPhoneError("Введите корректный номер телефона");
       return;
     }
-    setPhoneError('');
 
+    setPhoneError("");
     setSubmitting(true);
-    try {
-      const formData = new URLSearchParams();
-      formData.append('name', name);
-      formData.append('phone', rawPhone);
-      formData.append('animal', animal);
-      formData.append('comment', comment);
 
-      const response = await fetch('/mail/send.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    try {
+      const formData = new FormData();
+
+      formData.append("access_key", "091fe7a1-753a-443b-b57b-a518f50bbc30");
+      formData.append("subject", "Новая заявка с сайта AnimaVet");
+      formData.append("from_name", "AnimaVet");
+
+      formData.append("name", name);
+      formData.append("phone", rawPhone);
+      formData.append("animal", animal);
+      formData.append("message", comment);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         body: formData,
       });
 
       const data = await response.json();
+
+      console.log(data);
+
       if (data.success) {
+        setName("");
+        setPhone("");
+        setAnimal("");
+        setComment("");
+        setHoneypot("");
+        setPhoneError("");
+
         onSuccess();
       } else {
+        console.error(data);
         onError();
       }
-    } catch {
+    } catch (error) {
+      console.error(error);
       onError();
     } finally {
       setSubmitting(false);
