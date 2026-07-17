@@ -85,7 +85,6 @@ export default function RequestModal({ isOpen, formState, onClose, onSuccess, on
       formData.append("access_key", "51e32a3a-fcc4-487a-91c9-8369e2d79940");
       formData.append("subject", "Новая заявка с сайта AnimaVet");
       formData.append("from_name", "AnimaVet");
-      formData.append("email", "noreply@animavet.site");
 
       formData.append("name", name);
       formData.append("phone", rawPhone);
