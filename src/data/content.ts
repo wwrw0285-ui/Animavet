@@ -1,7 +1,7 @@
 export const siteData = {
-  phone: '+7 981 024 21 77',
-  phoneLink: 'tel:+79810242177',
-  email: 'info@animavet.ru',
+  phone: '+7 921 431 17 94',
+  phoneLink: 'tel:+79214311794',
+  email: 'Help@animavet.ru',
   telegram: 'https://t.me/AnimaVet',
   max: 'https://max.ru/id110404393606_bot?start=site',
   city: 'Санкт-Петербург и Ленинградская область',
