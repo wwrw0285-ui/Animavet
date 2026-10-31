@@ -2,7 +2,7 @@ export const siteData = {
   phone: '+7 921 431 17 94',
   phoneLink: 'tel:+79214311794',
   email: 'Help@animavet.ru',
-  telegram: 'https://t.me/@Animaaetspb',
+  telegram: 'https://t.me/@Animavetspb',
   max: 'https://max.ru/u/f9LHodD0cOIYVlViqWe5Nz3opmNYAHf6d9gIag_0ZP4pkACA-qkspp6ZRUk',
   city: 'Санкт-Петербург и Ленинградская область',
 };
